@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Portada</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Sobre Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="appointment.html">Reserva de Hora</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión / Registrarse</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <header class="container-fluid bg-primary text-white text-center py-3">
+        <h1>SutroSalud</h1>
+    </header>
+    <div class="rattoimagen">
+    </div>
+    <h2>Reserva tu Hora: Invierte en tu Bienestar</h2>
+
+    <p>En nuestra plataforma de agendamiento médico, creemos que la prevención es la clave para una vida saludable. Nuestro equipo de profesionales está comprometido en brindarte la mejor atención en áreas esenciales como nutrición, salud mental y hábitos saludables.</p>
+
+    <p>📅 Atención Oportuna y Preventiva
+    La salud no debe esperar. Agendar una consulta a tiempo puede marcar la diferencia en la prevención de enfermedades y el mantenimiento de un estilo de vida equilibrado.</p>
+
+    <p>🥗 Nutrición y Bienestar
+    Un plan nutricional adecuado puede mejorar tu energía, fortalecer tu sistema inmunológico y ayudarte a alcanzar un peso saludable. Nuestros especialistas en nutrición te guiarán en cada paso del camino.<p/>
+
+    <p>🧘‍♂️ Salud Mental y Hábitos Saludables
+    El bienestar emocional es tan importante como la salud física. Contamos con profesionales que te ayudarán a gestionar el estrés, mejorar tu calidad de sueño y desarrollar hábitos saludables para una vida plena.<p/>
+
+    <p>💙 ¿Por qué elegirnos?</p>
+    <ul>
+    <li>Profesionales altamente capacitados.</li>
+
+    <li>Facilidad para reservar y gestionar tus citas.</li>
+
+    <li>Atención integral y personalizada.</li>
+    </ul>
+    <p>Reserva tu consulta hoy y da el primer paso hacia una vida más saludable. Tu bienestar es nuestra prioridad.</p>
+
+
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        document.getElementById('registroForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Usuario registrado con éxito.');
+        });
+
+        document.getElementById('agendaForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Cita agendada con éxito.');
+        });
+    </script>
+</body>
+    <footer class="footer mt-auto py-4">
+        <div class="row">
+            <h5>Síguenos</h5>
+            <div class="icons">
+                <a href="https://www.instagram.com/" id="redes sociales">
+                    <img src="C:\Users\Perezoso\HTML\img\insta.png" alt="Insta" width="50" height="60">
+                </a>
+
+<!-- Aquí irían enlaces al sitio de redes sociales, entendiendo un atributo img para cada red social-->
+            </div>
+        </div>
+    </footer>
+</html>

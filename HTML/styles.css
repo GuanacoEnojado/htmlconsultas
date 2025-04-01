@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.container {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.rattoimagen {
+    background: url("C:\Users\Perezoso\HTML\img\rat.jpg");
+    height: 300px;
+    cursor: pointer;
+    background-position: center, center;
+    background-repeat: no-repeat;
+    position: center;
+    text-align: center;
+    background-size: 100%;
+    transition: all 1s ease-in-out;
+}
+.rattoimagen:hover {
+    transform: scale(1.2);
+    transition: all 1s ease-in;
+}
+h2 {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+button {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+.footer {
+    background-color: lightblue;
+    color: white;
+    padding: 20px;
+}
+.footer a {
+color: whitesmoke;
+text-decoration: none;
+}
+.footer a:hover {
+    color: aquamarine;
+    transform: scale(1.2);
+
+}
+.iconos {
+    font-size: 20px;
+    margin: 0 10px;
+}
