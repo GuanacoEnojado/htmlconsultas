@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/registrarse.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" >
+</head>
+
+
+<body>
+{% block title %}Registrarse{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="form-container">
+            <h2 class="form-title">Registro</h2>
+            <form method="post" novalidate>
+                {% csrf_token %}
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="{{ form.nombre.id_for_label }}">Nombre</label>
+                            {{ form.nombre }}
+                            {% if form.nombre.errors %}
+                                <div class="text-danger">
+                                    {{ form.nombre.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="{{ form.apellido.id_for_label }}">Apellido</label>
+                            {{ form.apellido }}
+                            {% if form.apellido.errors %}
+                                <div class="text-danger">
+                                    {{ form.apellido.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}">Email</label>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                        <div class="text-danger">
+                            {{ form.email.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.telefono.id_for_label }}">Telefono</label>
+                    {{ form.telefono }}
+                    {% if form.telefono.errors %}
+                        <div class="text-danger">
+                            {{ form.telefono.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.id.id_for_label }}">Rut o Pasaporte</label>
+                    {{ form.id }}
+                    {% if form.id.errors %}
+                        <div class="text-danger">
+                            {{ form.id.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.password.id_for_label }}">Contraseña</label>
+                    {{ form.password }}
+                    {% if form.password.errors %}
+                        <div class="text-danger">
+                            {{ form.password.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    <label for="{{ form.password2.id_for_label }}">Confirma contraseña</label>
+                    {{ form.password2 }}
+                    {% if form.password2.errors %}
+                        <div class="text-danger">
+                            {{ form.password2.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-custom">Registrar</button>
+            </form>
+            <p class="text-center mt-3">Ya tienes una cuenta? <a href="{% url 'login' %}">Ingresa!</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Client-side validation for the registration form
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            let valid = true;
+            
+            const nombre = document.getElementById('{{ form.nombre.id_for_label }}');
+            if (!nombre.value.trim()) {
+                valid = false;
+                markInvalid(nombre, 'First name is required');
+            } else {
+                markValid(nombre);
+            }
+            
+            const apellido = document.getElementById('{{ form.apellido.id_for_label }}');
+            if (!apellido.value.trim()) {
+                valid = false;
+                markInvalid(apellido, 'Last name is required');
+            } else {
+                markValid(apellido);
+            }
+            
+            const email = document.getElementById('{{ form.email.id_for_label }}');
+            if (!isValidEmail(email.value)) {
+                valid = false;
+                markInvalid(email, 'Please enter a valid email address');
+            } else {
+                markValid(email);
+            }
+
+            const telefono = document.getElementById('{{ form.telefono.id_for_label }}');
+            if (!isValidPhone(telefono.value)) {
+                valid = false;
+                markInvalid(telefono, 'Please enter a valid telefono number');
+            } else {
+                markValid(telefono);
+            }
+            
+            const id = document.getElementById('{{ form.id.id_for_label }}');
+            if (!id.value.trim()) {
+                valid = false;
+                markInvalid(id, 'ID number is required');
+            } else if (id.value.trim().length < 5) {
+                valid = false;
+                markInvalid(id, 'ID number must be at least 5 characters');
+            } else {
+                markValid(id);
+            }
+            
+            //validar contraseñas
+            const password = document.getElementById('{{ form.password.id_for_label }}');
+            const password2 = document.getElementById('{{ form.password2.id_for_label }}');
+            
+            if (!password.value) {
+                valid = false;
+                markInvalid(password, 'Se requiere contraseña');
+            } else if (password.value.length < 8) {
+                valid = false;
+                markInvalid(password, 'Debe ser al menos de 8 caracteres');
+            } else {
+                markValid(password);
+            }
+            
+            if (password.value !== password2.value) {
+                valid = false;
+                markInvalid(password2, 'Las contraseñas no coinciden');
+            } else if (password2.value) {
+                markValid(password2);
+            }
+            
+            if (!valid) {
+                event.preventDefault();
+            }
+        });
+        
+        function markInvalid(element, message) {
+            element.classList.add('is-invalid');
+            element.classList.remove('is-valid');
+            
+            // Esta funcion maneja los mesajos de error
+            let errorDiv = element.nextElementSibling;
+            if (!errorDiv || !errorDiv.classList.contains('text-danger')) {
+                errorDiv = document.createElement('div');
+                errorDiv.className = 'text-danger';
+                element.parentNode.insertBefore(errorDiv, element.nextSibling);
+            }
+            errorDiv.textContent = message;
+        }
+        //se maneja aca validacion de caracteres y texto de error
+        function markValid(element) {
+            element.classList.remove('is-invalid');
+            element.classList.add('is-valid');
+            
+            const errorDiv = element.nextElementSibling;
+            if (errorDiv && errorDiv.classList.contains('text-danger')) {
+                errorDiv.textContent = '';
+            }
+        }
+        
+        function isValidEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        function isValidPhone(telefono) {
+            const re = /^\+?[0-9]{10,15}$/;
+            return re.test(telefono.replace(/[\s-]/g, ''));
+        }
+    });
+</script>
+{% endblock %}
+</body>

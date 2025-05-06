@@ -1,0 +1,119 @@
+:root {
+    --azul1: #007BB9;
+    --azul2: #219CDA;
+    --azul3: #62BFEE;
+    --azul4: #8DD9FF;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+li a {
+    text-align: center;
+    display: block;
+    padding: 30px;
+    overflow: hidden;
+    color: white;
+    transition-duration: 0.4s;
+}
+li a:hover {
+    color: #8DD9FF;
+  }
+body {
+    margin: 0;
+    font-family: "raleway";
+    width: auto;
+    max-width: 1440px;
+    height: 1500px;
+}
+.header {
+    background-color: #007BB9;
+    position: sticky;
+
+}
+.boton {
+    background-color: #007BB9;
+    width: 413px;
+    height: 40px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: medium;
+    border-radius: 4px;
+    border: 2px solid white;
+    display: block;
+    font-family: "raleway";
+    font-size: large;
+    text-shadow: 3px black;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.boton:hover {
+    background-color: #62BFEE;
+    transition-duration: 0.4s;
+}
+.background {
+    font-family: "raleway";
+    background-color: #007BB9;
+    background-image: url("../images/Medical-Clinic-Interior-Design-Ideas-Medical-Fitouts-ImpeccaBuild-3-1024x683.jpg");
+    color: white;
+    padding-top: 200px;
+    padding-bottom: 93px;
+    padding-left: 152px;
+    padding-right: 152px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+}
+.contain {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #007BB9;
+    color: aliceblue;
+    padding: 20px;
+    justify-content: space-between;
+}
+.nav_links { 
+    column-gap: 50px;
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    color: white;
+}
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+.footer {
+    position: fixed;
+    background-color: #007BB9;
+    text-align: left;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    bottom: 0;
+    width: 100%;
+  }
+  .footertext {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
